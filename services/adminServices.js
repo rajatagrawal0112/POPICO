@@ -102,7 +102,7 @@ const activateUser = async (req, res) => {
 //         // let hashObject3 = await AdminCoinTransfer(user_wallet_address, finalSend);
 //         console.log(finalSend,'-------------------finalSend',typeof finalSend);
 //         let hash3 = hashObject3.transactionHash;
-//         await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, user_wallet_address, hash3, finalSend, '$EBT');
+//         await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, user_wallet_address, hash3, finalSend, '$POP');
 //         let userwallet = await blockchainServices.userWalletFindWallet(user_wallet_address);
 //         await blockchainServices.importWalletEntry(user_id, userwallet._id, created);      
 //               console.log("done")
@@ -130,7 +130,7 @@ const VerifyOrder = async (req, res) => {
             let hashObject3 = await AdminCoinTransfer(address, finalSend);
             console.log(finalSend,'----------finalSend',typeof finalSend);
             let hash3 = hashObject3.transactionHash;
-            await blockchainServices.addTransaction(user_id, Userwallet._id, adminAddress, address, hash3, finalSend, '$EBT');
+            await blockchainServices.addTransaction(user_id, Userwallet._id, adminAddress, address, hash3, finalSend, '$POP');
             // let userwallet = await blockchainServices.userWalletFindWallet(address);
             // await blockchainServices.importWalletEntry(user_id, userwallet._id, created);
             req.flash('success_msg', 'Order has been verified successfully.');

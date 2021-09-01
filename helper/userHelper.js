@@ -3,7 +3,7 @@ const { Tokensettings } = require('../models/userModel')
 
 const addtokensettings = async function () {
     let rates = {
-        token_name: '$EBT',
+        token_name: '$POP',
         total_quantity: '10000',
         etherValue: '1',
         btcValue: '1',

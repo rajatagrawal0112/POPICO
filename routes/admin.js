@@ -281,7 +281,7 @@ routes.get('/main-dashboard', middleware_check_login, async (req, res) => {
 
   let totalEBTRewardsDestributed = await adminServices.totalEBTRewardsDestributed(total_users_s)
 
-  const EBT_bal = await ethHelper.coinBalanceETH(admin_wallet) //$EBT balance
+  const EBT_bal = await ethHelper.coinBalanceETH(admin_wallet) //$POP balance
   console.log(`290-ebt`, EBT_bal)
 
   const ebtSold = await adminServices.EBTSold(EBT_bal)
@@ -653,7 +653,7 @@ routes.post('/update-password-user',middleware_check_login, (req, res) => {
           'We suggest you to please change your password after successfully logging in on the portal using the above password :\n\n' +
 
           'Here is the change password link: http://' + req.headers.host + '/Profile' + '\n\n' +
-          'Thanks and Regards,' + '\n' + '$EBT Team' + '\n\n',
+          'Thanks and Regards,' + '\n' + '$POP Team' + '\n\n',
       };
       smtpTransport.sendMail(mailOptions, function (err) {
         console.log(err);
@@ -899,7 +899,7 @@ routes.post('/submit-token',middleware_check_login, async (req, res, next) => {
                                           payment_status: 'pending',
                                           created_at: created_at,
                                           status: 'active',
-                                          token_type: '$EBT',
+                                          token_type: '$POP',
                                           transaction_type: 'Send'
 
                                         });
@@ -1223,7 +1223,7 @@ routes.get('/referral', middleware_check_login, (req, res, next) => {
                         payment_status: 'pending',
                         created_at: created_at,
                         status: 'active',
-                        token_type: '$EBT',
+                        token_type: '$POP',
                         transaction_type: 'Send',
                         referred_to_name: bonusUser.name,
                         referred_to_email: bonusUser.email,

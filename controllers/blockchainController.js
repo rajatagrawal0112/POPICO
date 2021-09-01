@@ -62,8 +62,8 @@ const verifyWallet = async (req, res) => {
 //                 let userRefer = await userServices.checkUserReferCode(user.ref_from);
 //                 let subject = 'Referral bonus credited.'
 //                 let text = 'Hello '+ user.email + ',<br><br>\n\n' +
-//                 'Congratulations we have credited your $EBT account by 10 $EBT (worth US$10) as your friend signed up using your referral code!<br><br>\n\n' + 
-//                 'Earn more $EBT by referring your friends and stand a chance to win exclusive ebt NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTheebt Team<br>\nhttps://ebtico.com';
+//                 'Congratulations we have credited your $POP account by 10 $POP (worth US$10) as your friend signed up using your referral code!<br><br>\n\n' + 
+//                 'Earn more $POP by referring your friends and stand a chance to win exclusive ebt NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTheebt Team<br>\nhttps://ebtico.com';
 //                 await mail(user.email, subject, text);
 //                 let userReferred = await userServices.checkUserWallet(userRefer._id);
 //                 let referAddress = userReferred.wallet_address;
@@ -110,14 +110,14 @@ const submitWallet = async (req, res) => {
                     let userRefer = await userServices.checkUserReferCode(user.ref_from);
                     let subject = 'Referral bonus credited.'
                     let text = 'Hello '+ user.email + ',<br><br>\n\n' +
-                     'Congratulations we have credited your $EBT account by 5 $EBT (worth US$5) as your friend signed up using your referral code!<br><br>\n\n' + 
-                     'Earn more $EBT by referring your friends and stand a chance to win exclusive $EBT NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTeam Abu Bakar<br>\nhttps://ebtico.com';
+                     'Congratulations we have credited your $POP account by 5 $POP (worth US$5) as your friend signed up using your referral code!<br><br>\n\n' + 
+                     'Earn more $POP by referring your friends and stand a chance to win exclusive $POP NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTeam Abu Bakar<br>\nhttps://ebtico.com';
                     await mail(user.email, subject, text);
                     let userReferred = await userServices.checkUserWallet(userRefer._id);
                     let referAddress = userReferred.wallet_address;
                     let hashObject2 = await AdminCoinTransfer(referAddress, referReward);
                     let hash2 = hashObject2.transactionHash;
-                    await blockchainServices.addTransaction(userRefer._id, userReferred._id, adminAddress, referAddress, hash2, referReward, '$EBT');
+                    await blockchainServices.addTransaction(userRefer._id, userReferred._id, adminAddress, referAddress, hash2, referReward, '$POP');
                     if(hashObject2){
                         await userServices.refUpdate(user.ref_code, user.ref_from);
                     }
@@ -129,7 +129,7 @@ const submitWallet = async (req, res) => {
                 let hashObject3 = await AdminCoinTransfer(address, finalSend);
                 console.log(finalSend,'-------------------finalSend',typeof finalSend);
                 let hash3 = hashObject3.transactionHash;
-                await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, address, hash3, finalSend, '$EBT');
+                await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, address, hash3, finalSend, '$POP');
                 let userwallet = await blockchainServices.userWalletFindWallet(address);
                 await blockchainServices.importWalletEntry(user_id, userwallet._id, created);
                 res.redirect('/Create-wallet-success?wallet=' + Buffer.from(address).toString('base64'));
