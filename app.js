@@ -16,9 +16,15 @@ const routes = require('./routes/index.js');
 const probit = require('./routes/probit.js');
 
 const mongoose = require("mongoose");
+
 mongoose.connect("mongodb://localhost/PopIco",
 { useUnifiedTopology: true } ,
 { useNewUrlParser: true });
+
+mongoose.set('useNewUrlParser', true);
+mongoose.connect("mongodb://localhost/AbuBakr",
+{ useUnifiedTopology: true });
+
 //new api
 const flash = require('express-flash');
 
