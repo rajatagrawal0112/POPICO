@@ -2,7 +2,7 @@ const web3 = require('web3');
 const Tx = require('ethereumjs-tx').Transaction;
 const Common = require('ethereumjs-common');
 
-const web3js = new web3(new web3.providers.HttpProvider("https://ropsten.infura.io/v3/5e1b7d94f4784e86a1b2511857f15287"));
+const web3js = new web3(new web3.providers.HttpProvider("https://data-seed-prebsc-1-s1.binance.org:8545"));
 
 const admin = process.env.ADMIN;
 const keyAdmin = process.env.PPK;
@@ -488,10 +488,10 @@ const AdminCoinTransfer =  async (receiver_address, amount) => {
         "data": tokenContract.methods.transfer(receiver_address, sendAmount).encodeABI(),
         "nonce": web3js.utils.toHex(count)
     };
-    const common = Common.default.forCustomChain('ropsten', {
-        name: 'eth',
-        networkId: 3,
-        chainId: 3
+    const common = Common.default.forCustomChain('mainnet', {
+        name: 'bnb',
+        networkId: 97,
+        chainId: 97
     }, 'petersburg');
     let transaction = new Tx(rawTransaction, { common });
     transaction.sign(privateKey);

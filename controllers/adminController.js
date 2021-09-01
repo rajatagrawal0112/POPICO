@@ -49,7 +49,7 @@ const Tx = require('ethereumjs-tx');
 const Web3 = require('web3');
 const web3js = new Web3(
   new Web3.providers.HttpProvider(
-    "https://ropsten.infura.io/v3/5e1b7d94f4784e86a1b2511857f15287"
+    "https://data-seed-prebsc-1-s1.binance.org:8545"
   )
 );
 
