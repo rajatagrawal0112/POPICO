@@ -1,140 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="zxx" class="js">
+
 <head>
-     <title>The $EBT</title>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <!-- Bootstrap Core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/css/bootstrap-dropdownhover.min.css" rel="stylesheet"/>
-    <!-- slick CSS -->
-    <link href="assets/css/slick.css" rel="stylesheet"/>
-    <link href="assets/css/slick-theme.css" rel="stylesheet"/>
-  <!-- Animate CSS -->
-    <link href="assets/css/animate.css" rel="stylesheet"/>
-    <!-- hover-min CSS -->
-    <link href="assets/css/hover-min.css" rel="stylesheet"/>
-    <!-- yamm css -->
-    <link href="assets/css/yamm.css" rel="stylesheet"/>
-    <!-- Font-awesome web fonts with css -->
-    <link href="assets/css/fontawesome-all.css" rel="stylesheet" type="text/css"/>
-    <!-- Font-awesome web fonts with css -->
-    <!-- loader css -->
-    <link href="assets/css/loader.css" rel="stylesheet"/>
-  <!-- Custom CSS -->
-   <!--  <link href="assets/css/custom-home-new.css" rel="stylesheet"/> -->
-    <link href="assets/css/custom-llc.css" rel="stylesheet"/>
- 
+  <meta charset="utf-8">
+  <meta name="author" content="Softnio">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="ICO Crypto is a modern and elegant landing page, created for ICO Agencies and digital crypto currency investment website.">
+  <!-- Fav Icon  -->
+  <link rel="shortcut icon" href="images2/favicon.png">
+  <!-- Site Title  -->
+  <title>User Center - ICO Crypto</title>
+  <!-- Vendor Bundle CSS -->
+  <link rel="stylesheet" href="assets2/css/vendor.bundle.css?ver=101">
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="assets2/css/style.css?ver=101">
+  <style>
+    .error_validate {
+      color: blueviolet;
+    }
+  </style>
 
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-     <link rel="stylesheet" href="assets/css/jquery-ui.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <style>
-      .error_validate {
-        color: red;
-      }
-    </style>
 </head>
-<body class="index-body">
 
-<section class="login-sec">
-    <div class="logo-box">
-        <img src="assets/images/the-art-logo.png" class="color-logo" alt="The Art W Logo">
-    </div>
+<body class="user-ath">
+
+  <div class="user-ath-page">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="login-form-box">
-                     <form id="login_form" action="/verify_tfa" method="POST">
-                      <h2>OTP</h2>
-                      <h6>Please enter the OTP to verify your transaction.</h6>
-                      <p>An One Time Password sent to your e-mail address.</p>
-                      <%if(err_msg!=""){%>
-                        <div class="alert alert-danger"><%=err_msg%></div>
-                      <%} if(success_msg!=""){%>
-                        <div class="alert alert-success"><%=success_msg%></div>
-                      <%}%>
-                        <!-- <h2>Login</h2> -->
-                          <div class="form-group">
-                            <!-- <label>Password</label> -->
-                            <input type="text" class="form-control" placeholder="Enter OTP" name='otp' id='otp' data-rule-required="true"  data-msg-required="Please enter OTP.">
-                          </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8  text-center">
+          <div class="user-ath-logo">
+            <a href="#">
+              <img src="images2/logo-sm.png" srcset="images/logo-sm2x.png 2x" alt="icon">
+            </a>
+          </div>
+          <div class="user-ath-box">
+            <div class="status status-thank">
 
-                          <div>
-                            <!-- <a class="purple-btn-index" href="/login">Login</a> -->
-                            <button type="submit" class="purple-btn-index" id="submit_verify_account">Submit</button>
-                          </div>
-                        </form>
-                </div>
-            </div>
+              <form id="otp_form" action="/verify_tfa" method="POST">
+                <h2>OTP</h2>
+                <span class="status-text">Please enter the OTP to verify your transaction.</span>
+                <p class="status-text">An One Time Password sent to your e-mail address.</p>
+                <%if(err_msg!=""){%>
+                  <div class="alert alert-danger">
+                    <%=err_msg%>
+                  </div>
+                  <%} if(success_msg!="" ){%>
+                    <div class="alert alert-success">
+                      <%=success_msg%>
+                    </div>
+                    <%}%>
+                      <!-- <h2>Login</h2> -->
+                      <div class="form-group">
+                        <!-- <label>Password</label> -->
+                        <input type="text" class="form-control" placeholder="Enter OTP" name='otp' id='otp'
+                          data-rule-required="true" data-msg-required="Please enter OTP.">
+                      </div>
+
+                      <div class="gaps"></div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <!-- <a class="purple-btn-index" href="/login">Login</a> -->
+                        <button type="submit" class="btn btn-primary" class="purple-btn-index"
+                          id="submit_verify_account">Submit</button>
+                      </div>
+
+              </form>
+            </div><!-- .status -->
+          </div>
+          <div class="gaps-2x"></div>
+          <div class="form-note">
+
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </div>
 
 
+  <!-- JavaScript (include all script here) -->
+  <script src="assets2/js/jquery.bundle.js?ver=101"></script>
+  <script src="assets2/js/script.js?ver=101"></script>
+</body>
 
-	<!-- JQuery -->
-        <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
-        <!-- <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script> -->
-        <!-- Bootstrap Core JavaScript -->
-        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-        <!-- dropdownhover effects JavaScript -->
-        <script type="text/javascript" src="assets/js/bootstrap-dropdownhover.min.js"></script>
-        <!-- wow JavaScript -->
-        <script type="text/javascript" src="assets/js/wow.min.js"></script>
-        <!-- slick JavaScript -->
-        <script type="text/javascript" src="assets/js/slick.js"></script>
-         <script type="text/javascript" src="assets/js/slick.min.js"></script>
-
-        <!-- Custom JavaScript -->
-        <script type="text/javascript" src="assets/js/custom.js"></script>
-        <script src="/assets/js/jquery.validate.min.js"></script>
-        <script type="text/javascript">
-        $('#login_form').validate({
-              onfocusout: function(element) {
-              this.element(element);
-              },
-              errorClass: 'error_validate',
-              errorElement:'span',
-              highlight: function(element, errorClass) {
-              $(element).removeClass(errorClass);
-              },
-              submitHandler:function(form)
-                 {
-                   $('#submit_verify_account').attr('disabled',true);
-                   form.submit();
-                 }
-              });
-              $(document).ready(function () {
-                var flash_msg=$('.flash_msg').html();
-                if(flash_msg!="" && flash_msg!=undefined)
-                {
-                  setTimeout(function(){ $('.flash_msg').html('');},4000);
-                }    
-              });
-
-              $(document).ready(function () {
-                var succ_flash_msg=$('.succ_flash_msg').html();
-                if(succ_flash_msg!="" && succ_flash_msg!=undefined)
-                {
-                  setTimeout(function(){ $('.succ_flash_msg').html('');},4000);
-                }    
-              });    
-        </script>
-        
-    </body>
 </html>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 
- 
+<script type="text/javascript">
+  $('#otp_form').validate({
+    onfocusout: function (element) {
+      this.element(element);
+    },
+    errorClass: 'error_validate',
+    errorElement: 'span',
+    highlight: function (element, errorClass) {
+      $(element).removeClass(errorClass);
+    },
+    submitHandler: function (form) {
+      $('#submit_login').attr('disabled', true);
+      form.submit();
+    }
+  });
+</script>

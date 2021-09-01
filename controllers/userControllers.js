@@ -40,12 +40,12 @@ const logout = async (req, res) => {
 const landingPage = async (req, res) => {
     let rates = await userServices.getRates();
     if (rates) {
-        res.render('front/index', {
+        res.render('index', {
             token_values: rates
         });
     }
     else {
-        res.render('front/index');
+        res.render('index');
     }
 }
 
@@ -162,7 +162,7 @@ const dashboardPage = async (req, res) => {
                 let full_value = coinbalance + eth_value;
                 full_value = Math.round(full_value * 100) / 100;
                 // res.render('dashboard', { err_msg, success_msg, ref_code, wallet_details, usdValue, etherValue, btcValue, bnbValue, import_wallet_id, balance, rown_bal, layout: false, session: req.session, crypto, all_transaction, wallet_time_difference, moment, bnbBalance, coinbalance, usd_value, ethBalance, full_value });
-                res.render('front/dashboard', { err_msg, success_msg, ref_code, wallet_details, usd_value,  full_value, usdValue, ethBalance, etherValue, import_wallet_id, balance, rown_bal, layout: false, session: req.session, crypto, all_transaction, wallet_time_difference, moment, coinbalance, usd_value,});
+                res.render('dashboard', { err_msg, success_msg, ref_code, wallet_details, usd_value,  full_value, usdValue, ethBalance, etherValue, import_wallet_id, balance, rown_bal, layout: false, session: req.session, crypto, all_transaction, wallet_time_difference, moment, coinbalance, usd_value,});
             
             }
         }
@@ -171,7 +171,7 @@ const dashboardPage = async (req, res) => {
             // let bnbBalance = 0;
             // let ethBalance = 0;
             // let coinbalance = 0;
-            // res.render('front/dashboard', { err_msg, success_msg, ref_code, wallet_details, usdValue, etherValue, btcValue, bnbValue, import_wallet_id, rown_bal, layout: false, session: req.session, crypto, all_transaction: [], coinbalance, bnbBalance, usd_value, ethBalance });
+            // res.render('/dashboard', { err_msg, success_msg, ref_code, wallet_details, usdValue, etherValue, btcValue, bnbValue, import_wallet_id, rown_bal, layout: false, session: req.session, crypto, all_transaction: [], coinbalance, bnbBalance, usd_value, ethBalance });
             req.session.wallet = false;
             res.redirect('create-wallet');
         }
@@ -186,7 +186,7 @@ const loginPage = async (req, res) => {
         res.redirect('/dashboard');
     }
     else {
-        res.render('front/login', { err_msg, success_msg, layout: false, session: req.session });
+        res.render('login', { err_msg, success_msg, layout: false, session: req.session });
     }
 }
 
@@ -207,9 +207,9 @@ const signupPage = async (req, res) => {
             res.redirect('/dashboard');
         } else {
             if (req.query.code) {
-                res.render('front/signup', { err_msg, success_msg, layout: false, session: req.session, ref_link: req.query.code });
+                res.render('signup', { err_msg, success_msg, layout: false, session: req.session, ref_link: req.query.code });
             } else {
-                res.render('front/signup', { err_msg, success_msg, layout: false, session: req.session, ref_link: '' });
+                res.render('signup', { err_msg, success_msg, layout: false, session: req.session, ref_link: '' });
             }
         }
     
@@ -220,7 +220,7 @@ const forgotPage = async (req, res) => {
         let success_msg = req.flash('success_msg');
         var test = req.session.is_user_logged_in;
         if (test == true) {
-            res.redirect('/dashboard');
+            res.redirect('dashboard');
         }
         else {
             res.render('forgot-pass', { err_msg, success_msg, layout: false, session: req.session, });
@@ -304,7 +304,7 @@ const verifyPage = async (req, res) => {
             if (test == true) {
                 res.redirect('/dashboard');
             } else {
-                res.render('front/verify-account', { err_msg, success_msg, layout: false, session: req.session })
+                res.render('verify-account', { err_msg, success_msg, layout: false, session: req.session })
             }
 }
     
@@ -321,7 +321,7 @@ const walletSuccess = async (req, res) => {
         if (req.query.wallet) {
             wallet_address = Buffer.from(req.query.wallet, 'base64').toString('ascii');
         }
-        res.render('front/wallet-success', { err_msg, success_msg, wallet_address, layout: false, session: req.session, });
+        res.render('wallet-success', { err_msg, success_msg, wallet_address, layout: false, session: req.session, });
     }
 }
 
@@ -335,7 +335,7 @@ const referral = async (req, res) => {
         let ref_code = user.ref_code;
         let referrals = await userServices.findReferData(ref_code);
 
-        res.render('front/referral-table', { err_msg, success_msg, layout: false, ref_code, session: req.session, referrals})
+        res.render('referral-table', { err_msg, success_msg, layout: false, ref_code, session: req.session, referrals})
     } else {
         res.redirect('/login');
 

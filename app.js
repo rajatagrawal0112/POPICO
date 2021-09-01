@@ -16,7 +16,7 @@ const routes = require('./routes/index.js');
 const probit = require('./routes/probit.js');
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/AbuBakr",
+mongoose.connect("mongodb://localhost/PopIco",
 { useUnifiedTopology: true } ,
 { useNewUrlParser: true });
 //new api
