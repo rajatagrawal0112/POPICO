@@ -4,7 +4,7 @@ const { Tokensettings } = require('../models/userModel')
 const addtokensettings = async function () {
     let rates = {
         token_name: '$POP',
-        total_quantity: '10000',
+        total_quantity: '1000000000000 ',
         etherValue: '1',
         btcValue: '1',
         usdValue: '1',

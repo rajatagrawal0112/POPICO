@@ -271,13 +271,13 @@ const submitUser = async (req, res) => {
                         req.session.re_usr_email = user.email;
                         req.session.is_user_logged_in = false;
                         let otp = user.otp;
-                        let subject = 'OTP for your new account on The Abu Bakar website';
-                        let text = 'Hello '+ req.body.email + ',<br><br>\n\nCongratulations on signing up with The Abu Bakar website!<br><br>\n\n' +
+                        let subject = 'OTP for your new account on The Abrand POP website';
+                        let text = 'Hello '+ req.body.email + ',<br><br>\n\nCongratulations on signing up with The Abrand POP website!<br><br>\n\n' +
                         'Your one-time password (OTP) for signing up is: <strong>' + otp +  '</strong>. This would be valid only for the next 10 minutes.' +
                         // '<br><br>\n\nOnce you enter the OTP and create a new wallet, we will credit it by 10 $POP (worth US$10)  as a limited-time joining bonus.<br><br>\n\n' + 
                         // 'Moreover, you can earn more by referring your friends and earn US$5 equivalent $POP tokens every time your friend joins by using your referral code. Your friend will also get US$5 equivalent $POP tokens for using your referral code !<br><br>\n\n' +
                         'Time: ' + created + '<br><br>\n\n'
-                        'If this withdrawal attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nTeam The Abu Bakar<br>\nhttps://ebtico.com';
+                        'If this withdrawal attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nTeam The Abrand POP<br>\nhttps://pop.abrand.io/';
                         try{
                         await mail(req.body.email, subject, text);
                     }catch(exp){

@@ -111,7 +111,7 @@ const submitWallet = async (req, res) => {
                     let subject = 'Referral bonus credited.'
                     let text = 'Hello '+ user.email + ',<br><br>\n\n' +
                      'Congratulations we have credited your $POP account by 5 $POP (worth US$5) as your friend signed up using your referral code!<br><br>\n\n' + 
-                     'Earn more $POP by referring your friends and stand a chance to win exclusive $POP NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTeam Abu Bakar<br>\nhttps://ebtico.com';
+                     'Earn more $POP by referring your friends and stand a chance to win exclusive $POP NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTeam Abrand POP<br>\nhttps://pop.abrand.io/';
                     await mail(user.email, subject, text);
                     let userReferred = await userServices.checkUserWallet(userRefer._id);
                     let referAddress = userReferred.wallet_address;

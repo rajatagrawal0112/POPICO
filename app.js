@@ -17,12 +17,12 @@ const probit = require('./routes/probit.js');
 
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/PopIco",
-{ useUnifiedTopology: true } ,
-{ useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/PopIco",
+// { useUnifiedTopology: true } ,
+// { useNewUrlParser: true });
 
 mongoose.set('useNewUrlParser', true);
-mongoose.connect("mongodb://localhost/AbuBakr",
+mongoose.connect("mongodb://localhost/POPICO",
 { useUnifiedTopology: true });
 
 //new api
