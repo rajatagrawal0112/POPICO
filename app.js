@@ -79,6 +79,14 @@ app.use('/', routes);
     res.setHeader('X-Foo', 'bar')
    })
 
+app.get('/privacy', (req, res) => {
+    res.render('privacy');
+   });
+
+app.get('/terms-condition', (req, res) => {
+    res.render('terms-condition');
+   });
+
 /*var options = {
 
 key: fs.readFileSync('/etc/letsencrypt/live/ebtico.com/privkey.pem', 'utf8'),
