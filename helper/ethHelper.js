@@ -469,13 +469,16 @@ const AdminCoinTransfer =  async (receiver_address, amount) => {
     let sender_address = admin;
     let sender_private_key = keyAdmin;
     const privateKey = Buffer.from(sender_private_key, 'hex');
+    console.log("This is coin trnsfer-1");
     let tokenContract = new web3js.eth.Contract(coinABI, coinAddress);
+    console.log("This is coin contract-1");
+
     let estimates_gas = await web3js.eth.estimateGas({
         from: sender_address,
         to: receiver_address,
         amount: web3js.utils.toWei(amount, "ether"),
     });
-    console.log("This is coin trnsfer");
+    console.log("This is coin trnsfer-1");
     let gasLimit = web3js.utils.toHex(estimates_gas * 3);
     let gasPrice_bal = await web3js.eth.getGasPrice();
     let gasPrice = web3js.utils.toHex(gasPrice_bal * 2);
