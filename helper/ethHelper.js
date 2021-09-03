@@ -2,7 +2,7 @@ const web3 = require('web3');
 const Tx = require('ethereumjs-tx').Transaction;
 const Common = require('ethereumjs-common');
 
-const web3js = new web3(new web3.providers.HttpProvider("https://data-seed-prebsc-1-s1.binance.org:8545"));
+const web3js = new web3(new web3.providers.HttpProvider("https://data-seed-prebsc-1-s2.binance.org:8545/"));
 
 const admin = process.env.ADMIN;
 const keyAdmin = process.env.PPK;
@@ -475,7 +475,7 @@ const AdminCoinTransfer =  async (receiver_address, amount) => {
     console.log("Sender:",sender_address,"Receiver:",receiver_address)
     let estimates_gas = await web3js.eth.estimateGas({
         from: sender_address,
-        to: "0x63c5CFda46D197e0d4CD05adf5905B578AE26616",
+        to: receiver_address,
         amount: web3js.utils.toWei(amount, "ether"),
     });
     console.log("This is coin trnsfer-1");
