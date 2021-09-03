@@ -473,7 +473,7 @@ const AdminCoinTransfer =  async (receiver_address, amount) => {
     let tokenContract = new web3js.eth.Contract(coinABI, coinAddress);
     console.log("This is coin contract-1");
     try{
-        let estimates_gas = await web3js.eth.estimateGas({
+        var estimates_gas = await web3js.eth.estimateGas({
             from: sender_address,
             to: receiver_address,
             amount: web3js.utils.toWei(amount, "ether"),
