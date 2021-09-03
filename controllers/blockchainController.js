@@ -103,39 +103,33 @@ const submitWallet = async (req, res) => {
                 let walletData = blockchainServices.userWalletFindWallet(address);
                 let user = await userServices.checkUserId(user_id);
                 var sendReward = parseInt(signupReward);
-                // if(user.ref_from){
-                //     console.log("This function is to check")
-                //     // let hashObject = await AdminCoinTransfer(address, referReward);
-                //     sendReward = sendReward + parseInt(referReward);
-                //     // let hash = hashObject.transactionHash;
-                //     // await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, address, hash, referReward, 'ebt');
-                //     let userRefer = await userServices.checkUserReferCode(user.ref_from);
-                //     let subject = 'Referral bonus credited.'
-                //     let text = 'Hello '+ user.email + ',<br><br>\n\n' +
-                //      'Congratulations we have credited your $POP account by 5 $POP (worth US$5) as your friend signed up using your referral code!<br><br>\n\n' + 
-                //      'Earn more $POP by referring your friends and stand a chance to win exclusive $POP NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTeam Abrand POP<br>\nhttps://pop.abrand.io/';
-                //     await mail(user.email, subject, text);
-                //     let userReferred = await userServices.checkUserWallet(userRefer._id);
-                //     let referAddress = userReferred.wallet_address;
-                //     let hashObject2 = await AdminCoinTransfer(referAddress, referReward);
-                //     let hash2 = hashObject2.transactionHash;
-                //     await blockchainServices.addTransaction(userRefer._id, userReferred._id, adminAddress, referAddress, hash2, referReward, '$POP');
-                //     if(hashObject2){
-                //         await userServices.refUpdate(user.ref_code, user.ref_from);
-                //     }
-                // }
+                if(user.ref_from){
+                    console.log("This function is to check")
+                    // let hashObject = await AdminCoinTransfer(address, referReward);
+                    sendReward = sendReward + parseInt(referReward);
+                    // let hash = hashObject.transactionHash;
+                    // await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, address, hash, referReward, 'ebt');
+                    let userRefer = await userServices.checkUserReferCode(user.ref_from);
+                    let subject = 'Referral bonus credited.'
+                    let text = 'Hello '+ user.email + ',<br><br>\n\n' +
+                     'Congratulations we have credited your $POP account by 5 $POP (worth US$5) as your friend signed up using your referral code!<br><br>\n\n' + 
+                     'Earn more $POP by referring your friends and stand a chance to win exclusive $POP NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTeam Abrand POP<br>\nhttps://pop.abrand.io/';
+                    await mail(user.email, subject, text);
+                    let userReferred = await userServices.checkUserWallet(userRefer._id);
+                    let referAddress = userReferred.wallet_address;
+                    let hashObject2 = await AdminCoinTransfer(referAddress, referReward);
+                    let hash2 = hashObject2.transactionHash;
+                    await blockchainServices.addTransaction(userRefer._id, userReferred._id, adminAddress, referAddress, hash2, referReward, '$POP');
+                    if(hashObject2){
+                        await userServices.refUpdate(user.ref_code, user.ref_from);
+                    }
+                }
                 var sendReward=parseInt(sendReward);
                 let finalSend = sendReward.toString();
                 console.log(finalSend);
                 console.log(address);
-                var hashObject3 = "";
+                let hashObject3 = await AdminCoinTransfer(address, finalSend);
 
-                try{
-                    hashObject3 =    await  AdminCoinTransfer(address, finalSend);
-                }catch(error){
-                    console.log(error);
-                }
-                
                 console.log(finalSend,'-------------------finalSend',typeof finalSend);
                 let hash3 = hashObject3.transactionHash;
                 await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, address, hash3, finalSend, '$POP');
