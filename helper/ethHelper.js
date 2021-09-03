@@ -466,7 +466,6 @@ const coinBalanceETH = async (account) => {
 //     };
 
 const AdminCoinTransfer =  async (receiver_address, amount) => {
-    console.log("This is coin trnsfer")
     let sender_address = admin;
     let sender_private_key = keyAdmin;
     const privateKey = Buffer.from(sender_private_key, 'hex');
@@ -476,12 +475,17 @@ const AdminCoinTransfer =  async (receiver_address, amount) => {
         to: receiver_address,
         amount: web3js.utils.toWei(amount, "ether"),
     });
+    console.log("This is coin trnsfer");
     let gasLimit = web3js.utils.toHex(estimates_gas * 3);
     let gasPrice_bal = await web3js.eth.getGasPrice();
     let gasPrice = web3js.utils.toHex(gasPrice_bal * 2);
+    console.log("This is coin trnsfer-2");
+
     let count = await web3js.eth.getTransactionCount(sender_address);
     let sendAmount = amount * Math.pow(10, 18);
     sendAmount = sendAmount.toString();
+    console.log("This is coin trnsfer-3");
+
     let rawTransaction = {
         "gasPrice": gasPrice,
         "gasLimit": gasLimit,
@@ -489,6 +493,8 @@ const AdminCoinTransfer =  async (receiver_address, amount) => {
         "data": tokenContract.methods.transfer(receiver_address, sendAmount).encodeABI(),
         "nonce": web3js.utils.toHex(count)
     };
+    console.log("This is coin trnsfer-4");
+
     const common = Common.default.forCustomChain('testnet', {
         name: 'bnb',
         networkId: 97,
