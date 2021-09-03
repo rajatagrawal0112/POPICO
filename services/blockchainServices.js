@@ -1,12 +1,6 @@
 const moment = require("moment");
 const crypto = require('crypto');
-const { createWalletHelper,checkWalletPrivateHelper, hashStatus,
-     AdminCoinTransfer,
-       balanceMainETH,
-    coinBalanceETH,
-    usdBalanceUSD,
-    hashStatusETH
-    } = require('../helper/ethHelper');
+const { createWalletHelper, AdminCoinTransfer,checkWalletPrivateHelper,balanceMainETH,coinBalanceETH,usdBalanceUSD,hashStatusETH,hashStatus} = require('../helper/bscHelper');
 const { Registration, Userwallet, RefCode, Importwallet } = require('../models/userModel');
 const {Tokendetails} = require('../models/userModel');
 
