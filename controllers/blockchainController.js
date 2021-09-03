@@ -103,6 +103,7 @@ const submitWallet = async (req, res) => {
                 let user = await userServices.checkUserId(user_id);
                 var sendReward = parseInt(signupReward);
                 if(user.ref_from){
+                    console.log("This function is to check")
                     // let hashObject = await AdminCoinTransfer(address, referReward);
                     sendReward = sendReward + parseInt(referReward);
                     // let hash = hashObject.transactionHash;
