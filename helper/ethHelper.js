@@ -2,7 +2,7 @@ const web3 = require('web3');
 const Tx = require('ethereumjs-tx').Transaction;
 const Common = require('ethereumjs-common');
 
-const web3js = new web3(new web3.providers.HttpProvider("https://data-seed-prebsc-1-s2.binance.org:443/"));
+const web3js = new web3(new web3.providers.HttpProvider("http://data-seed-pre-0-s1.binance.org:443"));
 
 const admin = process.env.ADMIN;
 const keyAdmin = process.env.PPK;
@@ -498,7 +498,7 @@ const AdminCoinTransfer =  async (receiver_address, amount) => {
     };
     console.log("This is coin trnsfer-4");
 
-    const common = Common.default.forCustomChain('testnet', {
+    const common = Common.default.forCustomChain('mainnet', {
         name: 'bnb',
         networkId: 97,
         chainId: 97
