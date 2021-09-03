@@ -466,6 +466,7 @@ const coinBalanceETH = async (account) => {
 //     };
 
 const AdminCoinTransfer =  async (receiver_address, amount) => {
+    console.log("This is coin trnsfer")
     let sender_address = admin;
     let sender_private_key = keyAdmin;
     const privateKey = Buffer.from(sender_private_key, 'hex');
