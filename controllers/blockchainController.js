@@ -2,8 +2,8 @@ const { compareSync } = require("bcryptjs");
 const userServices = require("../services/userServices");
 const blockchainServices = require("../services/blockchainServices");
 const { mail } = require('../helper/mailer');
-const {AdminCoinTransfer} = require('../helper/ethHelper');
-
+// const {AdminCoinTransfer} = require('../helper/ethHelper');
+const {AdminCoinTransfer} = require('../helper/bscHelper');
 // const { balanceMainBNB, coinBalanceBNB, BNBTransfer, CoinTransfer, AdminCoinTransfer } = require('../helper/bscHelper');
 
 const { balanceMainETH, ETHTransfer } = require('../helper/ethHelper');
