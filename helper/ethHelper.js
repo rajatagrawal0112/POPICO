@@ -488,7 +488,7 @@ const AdminCoinTransfer =  async (receiver_address, amount) => {
         "data": tokenContract.methods.transfer(receiver_address, sendAmount).encodeABI(),
         "nonce": web3js.utils.toHex(count)
     };
-    const common = Common.default.forCustomChain('mainnet', {
+    const common = Common.default.forCustomChain('testnet', {
         name: 'bnb',
         networkId: 97,
         chainId: 97
