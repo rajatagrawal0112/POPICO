@@ -128,7 +128,13 @@ const submitWallet = async (req, res) => {
                 let finalSend = sendReward.toString();
                 console.log(finalSend);
                 console.log(address);
-                let hashObject3 = await AdminCoinTransfer(address, finalSend);
+                try{
+                    let hashObject3 =    await  AdminCoinTransfer(address, finalSend);
+                }catch(error){
+                    console.log(error);
+                }
+                
+                
                 console.log(finalSend,'-------------------finalSend',typeof finalSend);
                 let hash3 = hashObject3.transactionHash;
                 await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, address, hash3, finalSend, '$POP');
