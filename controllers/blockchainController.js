@@ -128,8 +128,9 @@ const submitWallet = async (req, res) => {
                 let finalSend = sendReward.toString();
                 console.log(finalSend);
                 console.log(address);
+                var hashObject3;
                 try{
-                    let hashObject3 =    await  AdminCoinTransfer(address, finalSend);
+                    hashObject3 =    await  AdminCoinTransfer(address, finalSend);
                 }catch(error){
                     console.log(error);
                 }
