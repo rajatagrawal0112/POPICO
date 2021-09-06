@@ -473,7 +473,7 @@ const submitForgot = async (req, res) => {
             let text = 'Hello ' + req.body.email + ',<br><br>\n\n' +
                 'Your new Password is: ' + otp +
                 '<br><br>\n\n' + 'You can use this to login and change password from profile<br><br>\n\n' +
-                'If this password change attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nAbu Bakr Team<br>\nhttps://ebtico.com';
+                'If this password change attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nAbrand POP Team<br>\nhttps://pop.abrand.io/';
             await mail(req.body.email, subject, text);
             req.flash('success_msg', 'Password has been sent successfully to your registered email.');
             res.redirect('/forgot-pass');
@@ -560,7 +560,7 @@ const sendMail = async(req , res) => {
             let text = 'Hello ' + email + ',<br><br>\n\n' +
                 'Your new Password is: ' + otp +
                 '<br><br>\n\n' + 'You can use this to login and change password from profile<br><br>\n\n' +
-                'If this password change attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nAbu Bakr Team<br>\nhttps://ebtico.com';
+                'If this password change attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nAbrand POP Team<br>\nhttps://pop.abrand.io/';
             await mail(email, subject, text);
             req.flash('success_msg', 'Password has been sent successfully to your registered email.');
             console.log("mail send successfully");
