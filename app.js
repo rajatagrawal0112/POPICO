@@ -94,11 +94,11 @@ ca: fs.readFileSync('/etc/letsencrypt/live/ebtico.com/chain.pem', 'utf8')
     
 };
 
-// console.log('3009')
+console.log('3009');
 // Create an HTTP service.
-// http.createServer(app).listen(4000); 
+http.createServer(app).listen(4000); 
 // Create an HTTPS service identical to the HTTP service.
-// https.createServer(app).listen(443);
+https.createServer(app).listen(443);
 
 
  // Set 'views' directory for any views 
