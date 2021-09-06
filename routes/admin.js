@@ -208,11 +208,11 @@ routes.post('/submit-details', async (req, res) => {
   // const email = req.body.username;
   // const password = req.body.password;
 
-  const email = "ebticoglt@gmail.com";
-  const password = "Quest@ebtico";
+  const email = "popico.abrand@gmail.com";
+  const password = "PopIco@123";
 
   let Admin = {
-    name: 'Abu Bakar',
+    name: 'Abrand',
     email: req.body.email,
     password: req.body.password,
     user_type: 'admin'
