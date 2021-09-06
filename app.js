@@ -84,24 +84,23 @@ app.get('/terms-condition', (req, res) => {
     res.render('terms-condition');
    });
 
-// var options = {
+var options = {
 
-// key: fs.readFileSync('/etc/letsencrypt/live/ebtico.com/privkey.pem', 'utf8'),
+key: fs.readFileSync('/etc/letsencrypt/live/ebtico.com/privkey.pem', 'utf8'),
 
-// cert: fs.readFileSync('/etc/letsencrypt/live/ebtico.com/cert.pem', 'utf8'),
+cert: fs.readFileSync('/etc/letsencrypt/live/ebtico.com/cert.pem', 'utf8'),
 
-// ca: fs.readFileSync('/etc/letsencrypt/live/ebtico.com/chain.pem', 'utf8')
+ca: fs.readFileSync('/etc/letsencrypt/live/ebtico.com/chain.pem', 'utf8')
     
-// };
+};
 
-// console.log('3009')
+console.log('3009')
 // Create an HTTP service.
-// http.createServer(app).listen(4000); 
+http.createServer(app).listen(4000); 
 // Create an HTTPS service identical to the HTTP service.
-// https.createServer(app).listen(443);
-
+https.createServer(app).listen(443);
 
  // Set 'views' directory for any views 
  // being rendered res.render()
-const PORT = 443;
+const PORT = 3001;
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
