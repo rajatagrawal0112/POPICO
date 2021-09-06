@@ -98,10 +98,10 @@ console.log('3009')
 // Create an HTTP service.
 http.createServer(app).listen(4000); 
 // Create an HTTPS service identical to the HTTP service.
-https.createServer(app).listen(443);
+https.createServer(app).listen(3001);
 
 
  // Set 'views' directory for any views 
  // being rendered res.render()
-const PORT = 443;
+const PORT = 3001;
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
