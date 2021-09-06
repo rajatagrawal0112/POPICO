@@ -133,6 +133,9 @@ router.get('/profile', isUser, function (req, res) {
     });
   }
 });
+router.get('/privacy', (req, res) => {
+  res.render('privacy');
+ });
 
 //***************** post update profile **************//
 router.post('/update-profile', isUser, async function (req, res) {
@@ -145,7 +148,7 @@ router.post('/update-profile', isUser, async function (req, res) {
   let status = await userServices.updateARTUser(email, name);
   console.log(status);
   if (status == 1) {
-    Registration.update({ _id: user_id }, { $set: { name: name, email: email, mobile_no: mob} }, { upsert: true }, function (err, result) {
+    Registration.updateMany({ _id: user_id }, { $set: { name: name, email: email, mobile_no: mob} }, { upsert: true }, function (err, result) {
       if (err) {
         console.log("Something went wrong");
         req.flash('err_msg', 'Something went wrong, please try again.');
