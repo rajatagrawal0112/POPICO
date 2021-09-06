@@ -471,8 +471,8 @@ const submitForgot = async (req, res) => {
 
             let subject = 'Password for Login.'
             let text = 'Hello ' + req.body.email + ',<br><br>\n\n' +
-                'Your one-time password (OTP) for change password is: ' + otp +
-                '<br><br>\n\n' + 'This would be valid for only for the next 10 minutes<br><br>\n\n' +
+                'Your new Password is: ' + otp +
+                '<br><br>\n\n' + 'You can use this to login and change password from profile<br><br>\n\n' +
                 'If this password change attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nAbu Bakr Team<br>\nhttps://ebtico.com';
             await mail(req.body.email, subject, text);
             req.flash('success_msg', 'Password has been sent successfully to your registered email.');
@@ -558,8 +558,8 @@ const sendMail = async(req , res) => {
     // console.log("email send")
     let subject = 'Password for Login.'
             let text = 'Hello ' + email + ',<br><br>\n\n' +
-                'Your one-time password (OTP) for change password is: ' + otp +
-                '<br><br>\n\n' + 'This would be valid for only for the next 10 minutes<br><br>\n\n' +
+                'Your new Password is: ' + otp +
+                '<br><br>\n\n' + 'You can use this to login and change password from profile<br><br>\n\n' +
                 'If this password change attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nAbu Bakr Team<br>\nhttps://ebtico.com';
             await mail(email, subject, text);
             req.flash('success_msg', 'Password has been sent successfully to your registered email.');

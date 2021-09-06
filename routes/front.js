@@ -57,7 +57,7 @@ router.get('/receive-pop', isUser, function (req, res) {
 
 // router.get('/receive', userControllers.ReceivePage);
 
-router.get('/send-pop', userControllers.sendPage);
+// router.get('/send-pop', userControllers.sendPage);
 
 router.get('/signup', userControllers.signupPage);
 
@@ -79,7 +79,7 @@ router.get('/terms-condition', function (req, res) {
   res.render('terms-condition');
 });
 
-router.get('/send-pop', userControllers.sendPage);
+// router.get('/send-pop', userControllers.sendPage);
 //***************** get create wallet **************//
 router.get('/Create-wallet', isUser, blockchainController.createWallet);
 
@@ -515,7 +515,7 @@ router.post('/ETH', isUser, async function (req, res) {
         if (err) return console.log(err);
         console.log('Hello World > helloworld.txt');
         });
-        req.flash("success_msg", "Thankyou!, Request has been sent successfully and you will get the ebt in your account after your payment verification.");
+        req.flash("success_msg", "Thankyou!, Request has been sent successfully sent.You will get the POP in your account after your payment verification.");
         res.redirect('/buy-coin');
       })
       .catch(err => {
