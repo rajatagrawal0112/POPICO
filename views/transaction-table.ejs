@@ -13,21 +13,13 @@
       <div class="card">
         <div class="card-header">
           <div class="row">
+
             <% if(success_msg!=undefined){ %>
               <span class="flash_msg" style="color:green;">
                 <%= success_msg %>
               </span>
               <% }%>
-                <!-- <div class="col-md-3">
-                            <div class="form-group">
-                             <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">From</span>
-                        </div>
-                        <input type="date" class="form-control" placeholder="Date">
-                      </div>
-                            </div>
-                      </div> -->
+                
                 <div class="col-md-3">
                   <div class="form-group">
                     <div class="input-group mb-3">
@@ -35,26 +27,30 @@
                         <span class="input-group-text" id="basic-addon1">Date</span>
                       </div>
                       <input type="date" class="form-control" id="by_date" name="by_date"
-                        onchange="get_users_by_date(this.value)" placeholder="Date">
+                        onchange="get_users_by_date(this.value)">
                     </div>
                   </div>
                 </div>
+              
           </div>
         </div>
         <div class="card-body table-responsive">
-          <% if(all_transaction !="" && all_transaction!=null) { %>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th width="5%" class="border-top-0">S.No</th>
-                  <th width="10%" class="border-top-0">Created Date</th>
-                  <th width="15%" class="border-top-0">Transaction Id</th>
-                  <th width="15%" class="border-top-0">Sender Address</th>
-                  <th width="15%" class="border-top-0">Receiver Address</th>
-                  <th width="5%" class="border-top-0">Status</th>
-                  <th width="10%" class="border-top-0">Amount</th>
-                </tr>
-              </thead>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="5%" class="border-top-0">S.No</th>
+                <th width="10%" class="border-top-0">Created Date</th>
+                <th width="15%" class="border-top-0">Transaction Id</th>
+                <th width="15%" class="border-top-0">Sender Address</th>
+                <th width="15%" class="border-top-0">Receiver Address</th>
+                <th width="5%" class="border-top-0">Status</th>
+                <th width="10%" class="border-top-0">Amount</th>
+
+              </tr>
+            </thead>
+
+            <% if(all_transaction !="" && all_transaction!=null) { %>
               <tbody id="user_tr">
                 <input type="text" value="<%-address%>" name="sender" id="sender" hidden>
                 <% var n=1; all_transaction.forEach(function (transaction) { %>
@@ -119,17 +115,13 @@
                       <% } %>
 
               </tbody>
-            </table>
+          </table>
         </div>
       </div>
     </div>
   </div>
 
-
-
-
   <%- include('footer') %>
-
     <script>
       $(document).ready(function () {
         $('.table').DataTable();
@@ -153,6 +145,7 @@
 
 
       function get_users_by_date(value) {
+
         let sender = $('#sender').val();
         let date = value;
         $('#user_tr').html(" ");
@@ -164,28 +157,28 @@
             if (data) {
               var i = 0;
               $('#user_tr').html(" ");
-              data.txs.forEach(element => {
+              data.forEach(element => {
                 if (element) {
                   var tr_date = element.created_at;
                   tr_date = tr_date.slice(0, 10);
                   if (element.token_type == 'ETH') {
                     $('#user_tr').append(`<tr><td>${i + 1}</td>
-                <td>${tr_date}</td>
-                <td><a href="https://testnet.bscscan.com/tx/${element.hash}" target="_blank">${element.hash}</a></td>
-                <td><a href="https://testnet.bscscan.com/address/${element.sender_wallet_address}" target="_blank">${element.sender_wallet_address}</a></td>
-                <td><a href="https://testnet.bscscan.com/address/${element.receiver_wallet_address}" target="_blank">${element.receiver_wallet_address}</a></td>
-                <td>${element.payment_status.charAt(0).toUpperCase() + element.payment_status.slice(1)}</td>
-                <td>${element.amount} ${element.token_type}</td></tr>`);
+                  <td>${tr_date}</td>
+                  <td><a href="https://testnet.bscscan.com/tx/${element.hash}" target="_blank">${element.hash}</a></td>
+                  <td><a href="https://testnet.bscscan.com/address/${element.sender_wallet_address}" target="_blank">${element.sender_wallet_address}</a></td>
+                  <td><a href="https://testnet.bscscan.com/address/${element.receiver_wallet_address}" target="_blank">${element.receiver_wallet_address}</a></td>
+                  <td>${element.payment_status.charAt(0).toUpperCase() + element.payment_status.slice(1)}</td>
+                  <td>${element.amount} ${element.token_type}</td></tr>`);
                     i++;
                   }
                   else {
                     $('#user_tr').append(`<tr><td>${i + 1}</td>
-                <td>${tr_date}</td>
-                <td><a href="https://testnet.bscscan.com/tx/${element.hash}" target="_blank">${element.hash}</a></td>
-                <td><a href="https://testnet.bscscan.com/address/${element.sender_wallet_address}" target="_blank">${element.sender_wallet_address}</a></td>
-                <td><a href="https://testnet.bscscan.com/address/${element.receiver_wallet_address}" target="_blank">${element.receiver_wallet_address}</a></td>
-                <td>${element.payment_status.charAt(0).toUpperCase() + element.payment_status.slice(1)}</td>
-                <td>${element.amount} ${element.token_type}</td></tr>`);
+                  <td>${tr_date}</td>
+                  <td><a href="https://testnet.bscscan.com/tx/${element.hash}" target="_blank">${element.hash}</a></td>
+                  <td><a href="https://testnet.bscscan.com/address/${element.sender_wallet_address}" target="_blank">${element.sender_wallet_address}</a></td>
+                  <td><a href="https://testnet.bscscan.com/address/${element.receiver_wallet_address}" target="_blank">${element.receiver_wallet_address}</a></td>
+                  <td>${element.payment_status.charAt(0).toUpperCase() + element.payment_status.slice(1)}</td>
+                  <td>${element.amount} ${element.token_type}</td></tr>`);
                     i++;
                   }
                 }

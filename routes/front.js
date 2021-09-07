@@ -165,6 +165,13 @@ router.post('/update-profile', isUser, async function (req, res) {
   }
 });
 
+router.post("/users-by-date", async (req, res) => {
+  const date = req.body.date;
+  console.log(date);
+  const data = await Tokendetails.find({ created_at: date });
+  res.json(data);
+});
+
 // // //***************** post changes password **************//
 // router.post('/submit-change-pass', isUser, function (req, res) {
 //   if (req.body.new_password == req.body.new_password2) {
