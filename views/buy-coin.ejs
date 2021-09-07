@@ -325,23 +325,33 @@
         if (currencyType == "eth") {
           let wallet_address = "0xcB99B8269a22fa818Fb766B10Af612Fe97CC463d";
           document.getElementById("eth_wallet_address").value = wallet_address;
+          let curr_icon = "assets/images/eth-icon.png";
+          document.getElementById("icon").src = curr_icon;
 
         }
         else if (currencyType == "btc") {
           let wallet_address = "bc1q5n0ry5k4zxjv4a4cdg6neuvfdyh290gej9fluw";
           document.getElementById("eth_wallet_address").value = wallet_address;
+          let curr_icon = "assets/images/btc-icon.png";
+          document.getElementById("icon").src = curr_icon;
         }
         else if (currencyType == "bnb") {
           let wallet_address = "bnb1xp3pycd9qldu0ndkn2qhzs2ljyr94h20zwgsgt";
           document.getElementById("eth_wallet_address").value = wallet_address;
+          let curr_icon = "assets/images/bnb-icon.png";
+          document.getElementById("icon").src = curr_icon;
         }
         else if (currencyType == "usdt") {
           let wallet_address = "0xcB99B8269a22fa818Fb766B10Af612Fe97CC463d";
           document.getElementById("eth_wallet_address").value = wallet_address;
+          let curr_icon = "assets/images/usdt-icon.png";
+          document.getElementById("icon").src = curr_icon;
         }
         else {
           let wallet_address = "0xcB99B8269a22fa818Fb766B10Af612Fe97CC463d";
           document.getElementById("eth_wallet_address").value = wallet_address;
+          let curr_icon = "assets/images/eth-icon.png";
+          document.getElementById("icon").src = curr_icon;
         }
 
         $.ajax({
@@ -359,36 +369,6 @@
 
           }
         });
-
-      }
-    </script>
-    <script>
-      window.onload = function () {
-        changeCurrency("eth");
-      };
-      function changeCurrency(currencyType) {
-        // alert(currencyType);
-
-        if (currencyType == "eth") {
-          let curr_icon = "assets/images/eth-icon.png";
-          document.getElementById("icon").src = curr_icon;
-        }
-        else if (currencyType == "btc") {
-          let curr_icon = "assets/images/btc-icon.png";
-          document.getElementById("icon").src = curr_icon;
-        }
-        else if (currencyType == "bnb") {
-          let curr_icon = "assets/images/bnb-icon.png";
-          document.getElementById("icon").src = curr_icon;
-        }
-        else if (currencyType == "usdt") {
-          let curr_icon = "assets/images/usdt-icon.png";
-          document.getElementById("icon").src = curr_icon;
-        }
-        else {
-          let curr_icon = "assets/images/eth-icon.png";
-          document.getElementById("icon").src = curr_icon;
-        }
 
       }
     </script>
